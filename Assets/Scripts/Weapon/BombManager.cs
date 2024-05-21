@@ -21,6 +21,6 @@ public class BombManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        GameObject curbomb = Instantiate(bomb, gameObject.transform);
+        GameObject curbomb = Instantiate(bomb, transform.position, transform.rotation);
     }
 }
