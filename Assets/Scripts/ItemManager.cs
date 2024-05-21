@@ -22,8 +22,11 @@ public class ItemManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
-        if(other.gameObject.CompareTag("Player"))
+        //print(other.gameObject.name);
+        if (other.gameObject.CompareTag("Player"))
+        {
             Destroy(gameObject);
+            
+        }
     }
 }
