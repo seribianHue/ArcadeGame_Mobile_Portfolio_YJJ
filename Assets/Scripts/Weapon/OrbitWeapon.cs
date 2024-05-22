@@ -7,11 +7,16 @@ public class OrbitWeapon : MonoBehaviour
     [SerializeField]
     Transform player;
 
-    [Header("회전 속도"), SerializeField]
+    [Header("회전 속도")]
     float orbitSpeed = 10;
 
     [Header("공격력"), SerializeField]
     int atk = 6;
+
+    private void Awake()
+    {
+        orbitSpeed = gameObject.GetComponentInParent<OrbitWeaponManager>().orbitSpeed;
+    }
 
     void Orbit()
     {
@@ -23,9 +28,14 @@ public class OrbitWeapon : MonoBehaviour
         Orbit();
     }
 
+    public void OrbitSpeedUpdate(float speed)
+    {
+        orbitSpeed = speed;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyGetDamage"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(atk);
         }

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3874777428511594270}
   - component: {fileID: 8882856567237788361}
   - component: {fileID: 1362308052448648401}
-  - component: {fileID: 9124404345975636607}
-  - component: {fileID: 8736177702654743863}
+  - component: {fileID: -4100509301505679333}
+  - component: {fileID: -2679151310104622789}
   m_Layer: 0
   m_Name: Enemy_HP
   m_TagString: Enemy
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atk: 2
   atkTime: 1
---- !u!54 &9124404345975636607
+--- !u!54 &-4100509301505679333
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,10 +159,10 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 20
   m_CollisionDetection: 0
---- !u!135 &8736177702654743863
-SphereCollider:
+--- !u!65 &-2679151310104622789
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,11 +176,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7537382931781760449
 GameObject:

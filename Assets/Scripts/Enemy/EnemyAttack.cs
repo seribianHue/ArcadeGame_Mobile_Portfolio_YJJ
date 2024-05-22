@@ -21,7 +21,32 @@ public class EnemyAttack : MonoBehaviour
         playerHealth = player.GetComponentInParent<PlayerHealth>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject == player)
+        {
+            Attack();
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject == player)
+        {
+            atkTimer += Time.deltaTime;
+            if (atkTimer >= atkTime)
+            {
+                Attack();
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        atkTimer = 0;
+    }
+
+/*    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == player)
         {
@@ -44,7 +69,7 @@ public class EnemyAttack : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         atkTimer = 0;
-    }
+    }*/
 
     void Attack()
     {

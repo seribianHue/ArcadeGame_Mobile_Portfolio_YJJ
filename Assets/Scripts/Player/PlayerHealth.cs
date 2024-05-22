@@ -22,18 +22,24 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        sliderHp.value = curHp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        sliderHp.value = curHp;
 
     }
 
     public void TakeDamage(int damage)
     {
         curHp -= damage;
+        sliderHp.value = curHp;
+    }
+
+    public void RestoreHP(int hp)
+    {
+        curHp += hp;
+        sliderHp.value = curHp;
     }
 }

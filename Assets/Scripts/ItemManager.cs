@@ -25,6 +25,12 @@ public class ItemManager : MonoBehaviour
         //print(other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
+            if(_myItem == ITEM.HP)
+                other.GetComponent<PlayerManager>().RestoreHP();
+            if(_myItem == ITEM.GUN)
+                other.GetComponent<PlayerManager>().GunLevelUp();
+            if(_myItem == ITEM.ORBIT)
+                other.GetComponent<PlayerManager>().OrbitLevelUp();
             Destroy(gameObject);
             
         }

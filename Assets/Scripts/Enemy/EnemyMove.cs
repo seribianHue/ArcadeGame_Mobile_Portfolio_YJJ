@@ -28,7 +28,7 @@ public class EnemyMove : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _playerTrf = player.transform;
 
-        rig = GetComponent<Rigidbody>();
+        //rig = GetComponent<Rigidbody>();
     }
 
     private void Start()

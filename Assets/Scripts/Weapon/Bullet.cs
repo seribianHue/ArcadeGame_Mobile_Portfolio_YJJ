@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletManager : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [Header("°ø°Ý·Â"), SerializeField]
     int atk = 5;
@@ -42,4 +42,5 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

@@ -67,8 +67,8 @@ GameObject:
   - component: {fileID: 1464672776390958399}
   - component: {fileID: 8090708354743978509}
   - component: {fileID: 5879057396347873957}
-  - component: {fileID: 7222027068548774258}
-  - component: {fileID: 4518618333446994334}
+  - component: {fileID: 6949815900546384145}
+  - component: {fileID: -5539054488245807281}
   m_Layer: 0
   m_Name: Enemy_Speed
   m_TagString: Enemy
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atk: 5
   atkTime: 1
---- !u!54 &7222027068548774258
+--- !u!54 &6949815900546384145
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,10 +212,10 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 20
   m_CollisionDetection: 0
---- !u!135 &4518618333446994334
-SphereCollider:
+--- !u!65 &-5539054488245807281
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -229,9 +229,9 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
