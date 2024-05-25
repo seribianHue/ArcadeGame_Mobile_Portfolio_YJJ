@@ -5,22 +5,50 @@ using UnityEngine;
 public class BombWeapon : MonoBehaviour
 {
     [Header("공격 시간간격"), SerializeField]
-    float atkTime = 2f;
-    float atkTimer = 0f;
+    float fireTime = 10f;
+    float curTimer = 0f;
 
     [SerializeField]
     GameObject bomb;
 
-    [SerializeField]
-    Transform player;
-
-    [Header("공격 범위"), SerializeField]
-    float range = 7f;
+    int _bombLevel = 0;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
-        GameObject curbomb = Instantiate(bomb, transform.position, transform.rotation);
+    private void Update()
+    {
+        if(_bombLevel > 0)
+        {
+            curTimer += Time.deltaTime;
+
+            if (curTimer >= fireTime)
+            {
+                GameObject curbomb = Instantiate(bomb, transform.position, transform.rotation);
+                curTimer = 0f;
+            }
+        }
+    }
+
+    public void BombLevelUp()
+    {
+        _bombLevel++;
+        if (_bombLevel >= 2)
+        {
+            if (fireTime < 3f)
+            {
+                return;
+            }
+            else
+            {
+                fireTime -= 0.1f;
+            }
+        }
+        else
+        {
+            GameObject curbomb = Instantiate(bomb, transform.position, transform.rotation);
+
+        }
     }
 }

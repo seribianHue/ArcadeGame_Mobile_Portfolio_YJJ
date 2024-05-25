@@ -26,7 +26,25 @@ public class Bomb : MonoBehaviour
 
         //Find Target
         Collider[] colls = Physics.OverlapSphere(transform.position, targetRange);
-        if (colls.Length != 0)
+
+        Vector3 tmptarget;
+
+        foreach (Collider coll in colls)
+        {
+            if (coll.gameObject.CompareTag("Enemy"))
+            {
+                tmptarget = coll.transform.position;
+                targetPos = new Vector3(tmptarget.x, 0, tmptarget.z);
+                return;
+            }
+
+        }
+
+        tmptarget = transform.position + (transform.forward * targetRange);
+        targetPos = new Vector3(tmptarget.x, 0, tmptarget.z);
+        return;
+
+/*        if (colls.Length > 2)
         {
             Vector3 tmptarget = colls[0].transform.position;
             //플레이어와 길이 계산후 가장 가까운거 고른다 임시로 0번째를 한다
@@ -37,7 +55,7 @@ public class Bomb : MonoBehaviour
             //플레이어가 바라보고있는 방향으로 최대 길이로 == 길이 7
             Vector3 tmptarget = transform.position + (Vector3.forward * targetRange);
             targetPos = new Vector3(tmptarget.x, 0, tmptarget.z);
-        }
+        }*/
     }
 
     private void Update()
@@ -51,10 +69,27 @@ public class Bomb : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(Vector3.Distance(transform.position, targetPos) < 0.5f)
+        {
+            Collider[] colls = Physics.OverlapSphere(transform.position, atkRange);
+            for (int i = 0; i < colls.Length; ++i)
+            {
+                if (colls[i].gameObject.CompareTag("Enemy"))
+                {
+                    colls[i].gameObject.GetComponent<EnemyHealth>().TakeDamage(atk);
+                }
+                else
+                    continue;
+            }
+            isExplode = true;
+        }
     }
 
+    //안씀
     private void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         if (!other.gameObject.CompareTag("Player"))
         {
             Collider[] colls = Physics.OverlapSphere(transform.position, atkRange);

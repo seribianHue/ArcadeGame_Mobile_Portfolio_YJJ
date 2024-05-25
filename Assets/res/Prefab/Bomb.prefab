@@ -119,6 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 50
-  atkRange: 7
-  targetRange: 7
+  atkRange: 5
+  targetRange: 15
   floatTime: 0.01

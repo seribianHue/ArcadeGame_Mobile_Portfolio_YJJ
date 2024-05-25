@@ -2618,6 +2618,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104520615}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1108160727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108160728}
+  - component: {fileID: 1108160729}
+  m_Layer: 0
+  m_Name: Bomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108160728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108160727}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1290678462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108160729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108160727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccaa9ef3487812469f1b4ecb89ec22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireTime: 10
+  bomb: {fileID: 2717321715475137391, guid: 7b3832576cf8f544cae0f6826b823c5f, type: 3}
 --- !u!1 &1115412348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,6 +3047,7 @@ Transform:
   - {fileID: 1012933598}
   - {fileID: 653366658}
   - {fileID: 1245755852}
+  - {fileID: 1108160728}
   m_Father: {fileID: 186305435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1290678464
@@ -3036,6 +3083,7 @@ MonoBehaviour:
   _playerHp: {fileID: 1290678467}
   _gunWeapon: {fileID: 1245755853}
   _orbitWeaponManager: {fileID: 1982250064}
+  _bombWeapon: {fileID: 1108160729}
 --- !u!114 &1290678466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3145,6 +3193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 6169322719966619597, guid: cfea4f5124e199b4fba385990220c0ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects:
@@ -3238,6 +3290,10 @@ PrefabInstance:
     - target: {fileID: 6815908381841468714, guid: 8bc43286208a3ee48b9e8118bf1e2cd6, type: 3}
       propertyPath: m_Name
       value: Enemy_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815908381841468714, guid: 8bc43286208a3ee48b9e8118bf1e2cd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8468727688071776689, guid: 8bc43286208a3ee48b9e8118bf1e2cd6, type: 3}
       propertyPath: m_LocalPosition.x
