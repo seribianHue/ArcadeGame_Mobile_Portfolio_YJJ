@@ -33,6 +33,8 @@ public class ItemManager : MonoBehaviour
                 other.GetComponent<PlayerManager>().OrbitLevelUp();
             if(_myItem == ITEM.BOMB)
                 other.GetComponent<PlayerManager>().BombLevelUp();
+            if(_myItem == ITEM.LAZER)   
+                other.GetComponent<PlayerManager>().LazerLevelUp();
             Destroy(gameObject);
             
         }

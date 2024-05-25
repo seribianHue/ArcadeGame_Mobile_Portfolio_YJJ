@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GunWeapon _gunWeapon;
     [SerializeField] OrbitWeaponManager _orbitWeaponManager;
     [SerializeField] BombWeapon _bombWeapon;
+    [SerializeField] LazerWeapon _lazerWeapon;
 
     public void RestoreHP()
     {
@@ -28,5 +29,10 @@ public class PlayerManager : MonoBehaviour
     public void BombLevelUp()
     {
         _bombWeapon.BombLevelUp();
+    }
+
+    public void LazerLevelUp()
+    {
+        _lazerWeapon.LazerLevelUp();
     }
 }
