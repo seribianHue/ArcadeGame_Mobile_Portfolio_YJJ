@@ -49,6 +49,7 @@ public class EnemyMove : MonoBehaviour
 
     public IEnumerator GetDamaged_Move()
     {
+        _myTrf.position -= transform.forward * 0.1f;
         float initSpeed = _speed;
         _speed = _dmgSpeed;
         yield return new WaitForSeconds(_dmgTime);

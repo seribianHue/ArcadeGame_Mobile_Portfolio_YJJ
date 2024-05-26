@@ -104,6 +104,12 @@ MonoBehaviour:
   curHp: 0
   enemyMove: {fileID: 0}
   deathTime: 5
+  _itemList:
+  - {fileID: 881488337875780785, guid: 93041f44da4b31548b823d2440fcf8a1, type: 3}
+  - {fileID: 3503949192298412161, guid: 28d13df0e9796a54e898f53cac9a0bea, type: 3}
+  - {fileID: 9209519040931368262, guid: 6256dfd27ccf9974abcbdb6deea06cb9, type: 3}
+  - {fileID: 659452553469872022, guid: 83afd9f3f39f6d844a2b2d1875527498, type: 3}
+  - {fileID: 9104975118704285876, guid: 67f789f507c718346ab97ef024e298c8, type: 3}
 --- !u!114 &5356234714521460201
 MonoBehaviour:
   m_ObjectHideFlags: 0

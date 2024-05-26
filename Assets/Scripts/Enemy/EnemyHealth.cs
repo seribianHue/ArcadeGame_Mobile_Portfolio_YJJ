@@ -20,6 +20,9 @@ public class EnemyHealth : MonoBehaviour
 
     bool isDead;
 
+    [Header("Item"), SerializeField]
+    GameObject[] _itemList;
+
     private void Awake()
     {
         color = gameObject.GetComponent<Renderer>();
@@ -31,7 +34,19 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHp -= damage;
-        StartCoroutine(enemyMove.GetDamaged_Move());
+        if (curHp <= 0)
+        {
+            //dead
+            enemyMove.enabled = false;
+            isDead = true;
+            StartCoroutine(Dead());
+            DropItem();
+        }
+        else
+        {
+            //damaged
+            StartCoroutine(enemyMove.GetDamaged_Move());
+        }
     }
 
     public IEnumerator Dead()
@@ -40,13 +55,21 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(deathTime);
     }
 
+    void DropItem()
+    {
+        if (CommonMath.ProbabilityMethod(50))
+        {
+            Instantiate(_itemList[Random.Range(0, _itemList.Length)]);
+        }
+    }
+
     private void Update()
     {
-        if ((curHp <= 0) && (!isDead))
+/*        if ((curHp <= 0) && (!isDead))
         {
             enemyMove.enabled = false;
             isDead = true;
             StartCoroutine(Dead());
-        }
+        }*/
     }
 }
