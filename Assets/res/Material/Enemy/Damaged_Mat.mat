@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyDamaged_Mat
-  m_Shader: {fileID: 4800000, guid: 11b95492a283e8d42a09fc48034a4e0f, type: 3}
+  m_Name: Damaged_Mat
+  m_Shader: {fileID: 4800000, guid: 99ba63efb7ceb5f498ea950a53c61972, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,22 +23,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BlinkTex:
+        m_Texture: {fileID: 2800000, guid: eef2555a59fea714b8ef0c3c386312d6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 23c6ff4d649fc5c40bb67122463d7282, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cut: 0.23
-    - _CutRate: 0.047
-    - _Glossiness: 0.5
-    - _Metallic: 0
-    - _OutThickness: 1.18
+    - _Glossiness: 0.93
+    - _Metallic: 0.43
+    - _Transparency: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.5851397, b: 0, a: 1}
-    - _OutColor: {r: 3.6226416, g: 2.6232922, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
