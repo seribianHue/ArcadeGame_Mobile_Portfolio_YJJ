@@ -7,8 +7,8 @@ public class EnemyAttack : MonoBehaviour
     [Header("적 공격력"), SerializeField]
     int atk = 10;
 
-    [Header("적 공격 시간간격"), SerializeField]
-    float atkTime = 1f;
+    [Header("적 공격 시간간격")]
+    public float atkTime = 0.1f;
     float atkTimer = 0f;
 
     GameObject player;

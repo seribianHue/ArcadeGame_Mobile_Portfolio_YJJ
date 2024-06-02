@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a115e863455aef4fab632e322b730f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initHp: 20
+  initHp: 10
   curHp: 0
   enemyMove: {fileID: 0}
   deathTime: 5
@@ -110,6 +110,10 @@ MonoBehaviour:
   - {fileID: 9209519040931368262, guid: 6256dfd27ccf9974abcbdb6deea06cb9, type: 3}
   - {fileID: 659452553469872022, guid: 83afd9f3f39f6d844a2b2d1875527498, type: 3}
   - {fileID: 9104975118704285876, guid: 67f789f507c718346ab97ef024e298c8, type: 3}
+  _deathMatList:
+  - {fileID: 2100000, guid: f1bc6a0300497d84ba9c8dbae949d8d3, type: 2}
+  - {fileID: 2100000, guid: 6101d97536be96247ba5a16ec115d5bb, type: 2}
+  _damageMat: {fileID: 2100000, guid: 968dc60fe0391ea47848aed4cbcf521f, type: 2}
 --- !u!114 &5356234714521460201
 MonoBehaviour:
   m_ObjectHideFlags: 0

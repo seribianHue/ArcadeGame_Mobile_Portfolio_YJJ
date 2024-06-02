@@ -8,7 +8,7 @@ public class GunWeapon : MonoBehaviour
     GameObject bullet;
 
     [Header("¹ß»ç ºóµµ"), SerializeField]
-    float fireTime = 3f;
+    float fireTime = 2f;
     float curTimer;
 
     int _gunLevel = 0;
@@ -30,6 +30,8 @@ public class GunWeapon : MonoBehaviour
 
             if(_gunLevel == 0)
             {
+                Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, 25f, 0)));
+                Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, -25f, 0)));
                 Instantiate(bullet, transform.position, transform.rotation);
                 curTimer = 0f;
 
@@ -38,6 +40,8 @@ public class GunWeapon : MonoBehaviour
             {
                 Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, 25f, 0)));
                 Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, -25f, 0)));
+                Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, 15f, 0)));
+                Instantiate(bullet, transform.position, Quaternion.Euler(rot + new Vector3(0, -15f, 0))); 
                 Instantiate(bullet, transform.position, transform.rotation);
                 curTimer = 0f;
             }
@@ -50,7 +54,7 @@ public class GunWeapon : MonoBehaviour
         _gunLevel++;
         if(_gunLevel >= 2)
         {
-            if(fireTime < 0.2f)
+            if(fireTime < 0.1f)
             {
                 return;
             }

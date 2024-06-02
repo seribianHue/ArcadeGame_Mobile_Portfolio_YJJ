@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DisappearPart: 0.65
+    - _DisappearPart: 0.705
     - _Glossiness: 0.5
     - _Metallic: 0
     - _OutThickness: 0.1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,9 +16,16 @@ public class GameManager : MonoBehaviour
     int _stage;
     public int _Stage { get { return _stage; } }
 
+    [SerializeField]
+    EnemySpawnManager _enemySpawnManager;
+
+    [SerializeField]
+    TextMeshProUGUI _timerText;
+
     private void Awake()
     {
         instance = this;
+        _stage = 0;
     }
 
     // Start is called before the first frame update
@@ -30,11 +38,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _gameTime += Time.deltaTime;
+        _timerText.text = _gameTime.ToString("F2");
+
         _stageTime += Time.deltaTime;
-        if(_stageTime > 120)
+        if(_stageTime > 60)
         {
             _stageTime = 0.0f;
             _stage++;
+            _enemySpawnManager.StageUp(_stage);
         }
     }
 }

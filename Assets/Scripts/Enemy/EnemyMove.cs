@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     float _speed = 2f;
 
     [Header("피격시 이동 속도"), SerializeField]
-    float _dmgSpeed = 1f;
+    float _dmgSpeed = 0.5f;
     [Header("피격시 시간"), SerializeField]
     float _dmgTime = 0.5f;
 
@@ -49,11 +49,12 @@ public class EnemyMove : MonoBehaviour
 
     public IEnumerator GetDamaged_Move()
     {
-        _myTrf.position -= transform.forward * 0.1f;
+        _myTrf.position -= transform.forward * 0.5f;
         float initSpeed = _speed;
         _speed = _dmgSpeed;
         yield return new WaitForSeconds(_dmgTime);
         _speed = initSpeed;
+        yield return null;
     }
 
 }

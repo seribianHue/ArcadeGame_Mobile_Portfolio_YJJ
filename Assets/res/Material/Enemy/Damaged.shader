@@ -10,6 +10,9 @@ Shader "Custom/Damaged"
         _Transparency("Transparency", Range(0,1)) = 0.5
 
         _BlinkTex("BlinkTex", 2D) = "white" {}
+
+        //±ôºýÀÌ´Â È¿°ú
+        _FlickerTime("Flicker Time", Range(0, 10)) = 1
     }
     SubShader
     {
@@ -42,13 +45,7 @@ Shader "Custom/Damaged"
         fixed4 _Color;
 
         float _Transparency;
-
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
+        float _FlickerTime;
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
@@ -62,9 +59,9 @@ Shader "Custom/Damaged"
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
 
-            fixed4 blink = tex2D(_BlinkTex, IN.uv_BlinkTex) * _Time.y;
+            fixed4 blink = tex2D(_BlinkTex, float2(_Time.y * _FlickerTime, 0.5));
 
-            o.Alpha = c.a * _Transparency;
+            o.Alpha = c.a * blink.r ;
         }
         ENDCG
     }
