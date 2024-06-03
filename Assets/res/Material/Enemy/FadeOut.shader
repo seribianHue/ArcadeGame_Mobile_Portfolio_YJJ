@@ -7,7 +7,7 @@ Shader "Custom/FadeOut"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
-        _DisappearPart("Dissapear Part", Range(0, 1)) = 0.5
+        _DisappearPart("Dissapear Part", Range(-5, 5)) = 0.5
 
         // ¿Ü°û »ö
         [HDR]_OutColor("OutColor", Color) = (1,1,1,1)

@@ -17,8 +17,11 @@ public class EnemyMove : MonoBehaviour
 
     [Header("피격시 이동 속도"), SerializeField]
     float _dmgSpeed = 0.5f;
+    float _originalSpeed;
     [Header("피격시 시간"), SerializeField]
     float _dmgTime = 0.5f;
+
+    EnemyHealth _enemyHealth;
 
 
     private void Awake()
@@ -27,18 +30,20 @@ public class EnemyMove : MonoBehaviour
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _playerTrf = player.transform;
-
+        
+        _enemyHealth = GetComponent<EnemyHealth>();
         //rig = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-
+        _originalSpeed = _speed;
     }
 
     private void Update()
     {
-        Move();
+        if(!_enemyHealth.isDead)
+            Move();     
     }
 
     void Move()
@@ -50,10 +55,9 @@ public class EnemyMove : MonoBehaviour
     public IEnumerator GetDamaged_Move()
     {
         _myTrf.position -= transform.forward * 0.5f;
-        float initSpeed = _speed;
         _speed = _dmgSpeed;
         yield return new WaitForSeconds(_dmgTime);
-        _speed = initSpeed;
+        _speed = _originalSpeed;
         yield return null;
     }
 

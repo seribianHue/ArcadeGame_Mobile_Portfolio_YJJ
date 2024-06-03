@@ -14,6 +14,13 @@ public class PlayerManager : MonoBehaviour
     [Header("Upgrade Mat"), SerializeField]
     Material _upgradeMat;
 
+    Material _originalMat;
+
+    private void Start()
+    {
+        _originalMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+    }
+
     public void RestoreHP()
     {
         _playerHp.RestoreHP(10);
@@ -45,14 +52,16 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator CRT_Upgrade()
     {
-        Material mat = GetComponent<MeshRenderer>().material;
-        Color enemyColor = mat.color;
-        Texture texture = mat.GetTexture("_MainTex");
+        SkinnedMeshRenderer[] mesh = GetComponentsInChildren<SkinnedMeshRenderer>();
+        
+        Color enemyColor = _originalMat.color;
+        Texture texture = _originalMat.GetTexture("_MainTex");
 
         Material newmat = Instantiate(_upgradeMat);
         newmat.color = enemyColor;
         newmat.SetTexture("_MainTex", texture);
-        GetComponent<Renderer>().material = newmat;
+
+        foreach (SkinnedMeshRenderer meshRenderer in mesh) { meshRenderer.material = newmat; }
 
         float time = 0f;
         while (time < 1f)
@@ -61,7 +70,9 @@ public class PlayerManager : MonoBehaviour
             yield return null;
 
         }
-        GetComponent<Renderer>().material = mat;
+        
+        foreach (SkinnedMeshRenderer meshRenderer in mesh) { meshRenderer.material = _originalMat; }
+
         yield return null;
     }
 }

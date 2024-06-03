@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform playerBodyRotate;
 
+    [SerializeField]
+    Animator _anim;
+
     void Update() { Move(); }
 
     void Move()
@@ -29,15 +32,23 @@ public class PlayerController : MonoBehaviour
 
         float speed = moveInput.sqrMagnitude * moveSpeed;
 
+        //_anim.SetFloat("Move", speed);
+
 /*        if (_animCtrl != null)
             _animCtrl.Run(speed);*/
 
         if(speed > 0)
         {
+            _anim.SetBool("isMove", true);
             Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
 
             playerBodyMove.position += moveDir * Time.deltaTime * moveSpeed;
+            playerBodyMove.position = playerBodyRotate.position;
             playerBodyRotate.localRotation = Quaternion.Lerp(playerBodyRotate.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * rotSpeed);
+        }
+        else
+        {
+            _anim.SetBool("isMove", false);
         }
     }
 

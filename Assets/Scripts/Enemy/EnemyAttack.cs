@@ -14,16 +14,21 @@ public class EnemyAttack : MonoBehaviour
     GameObject player;
 
     PlayerHealth playerHealth;
+    EnemyHealth _enemyHealth;
+
+    Animator _animator;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponentInParent<PlayerHealth>();
+        _animator = GetComponent<Animator>();
+        _enemyHealth = GetComponent<EnemyHealth>(); 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject == player)
+        if((collision.gameObject == player) && !_enemyHealth.isDead)
         {
             Attack();
         }
@@ -31,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject == player)
+        if ((collision.gameObject == player) && !_enemyHealth.isDead)
         {
             atkTimer += Time.deltaTime;
             if (atkTimer >= atkTime)
@@ -81,6 +86,9 @@ public class EnemyAttack : MonoBehaviour
         if((playerHealth.CurHp > 0))
         {
             playerHealth.TakeDamage(atk);
+            _animator.SetTrigger("Attack");
         }
+        //_animator.SetBool("isAttack", false);
+
     }
 }
