@@ -31,9 +31,9 @@ public class OrbitWeaponManager : MonoBehaviour
             SetAllWeaponOff();
             _orbitWeapon1_6[_orbitLevel].SetActive(true);
         }
-        else if(_orbitLevel < 12)
+        else if(_orbitLevel < 20)
         {
-            orbitSpeed += 50;
+            orbitSpeed += 20;
             OrbitWeapon[] orbits = _orbitWeapon1_6[_orbitWeapon1_6.Length - 1].GetComponentsInChildren<OrbitWeapon>();
             foreach(OrbitWeapon orbit in orbits)
             {
@@ -46,8 +46,25 @@ public class OrbitWeaponManager : MonoBehaviour
         }
     }
 
-    void SetAllWeaponOff()
+    public void SetAllWeaponOff()
     {
         foreach(GameObject weapon in _orbitWeapon1_6) { weapon.SetActive(false); }
+    }
+
+    public void SetOrbitWeapon(bool onoff)
+    {
+        if(_orbitLevel < 0)
+        {
+            return;
+        }
+        else if(_orbitLevel < 6)
+        {
+            _orbitWeapon1_6[_orbitLevel].SetActive(onoff);
+
+        }
+        else
+        {
+            _orbitWeapon1_6[_orbitWeapon1_6.Length - 1].SetActive(onoff);
+        }
     }
 }

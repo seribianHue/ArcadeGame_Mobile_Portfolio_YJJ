@@ -16,6 +16,9 @@ public class Bomb : MonoBehaviour
     [Header("날아가는 시간"), SerializeField]
     float floatTime = 0.01f;
 
+    [SerializeField]
+    ParticleSystem _explodeParticle;
+
     bool isExplode;
 
     Vector3 targetPos;
@@ -72,6 +75,9 @@ public class Bomb : MonoBehaviour
 
         if(Vector3.Distance(transform.position, targetPos) < 0.5f)
         {
+            ParticleSystem explode = Instantiate(_explodeParticle, transform.position, Quaternion.identity);
+            explode.Play();
+
             Collider[] colls = Physics.OverlapSphere(transform.position, atkRange);
             for (int i = 0; i < colls.Length; ++i)
             {
@@ -92,6 +98,8 @@ public class Bomb : MonoBehaviour
         print(other.name);
         if (!other.gameObject.CompareTag("Player"))
         {
+            ParticleSystem explode = Instantiate(_explodeParticle, transform.position, Quaternion.identity);
+            explode.Play();
             Collider[] colls = Physics.OverlapSphere(transform.position, atkRange);
             for (int i = 0; i < colls.Length; ++i)
             {

@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 1
-  atkTime: 1
+  atkTime: 0.1
 --- !u!114 &46172391307969750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _dmgSpeed: 0.5
-  _dmgTime: 0.5
+  _dmgTime: 0.3
 --- !u!65 &177988934387831379
 BoxCollider:
   m_ObjectHideFlags: 0

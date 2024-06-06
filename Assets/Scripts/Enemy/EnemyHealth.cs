@@ -73,7 +73,8 @@ public class EnemyHealth : MonoBehaviour
             else
             {
                 //damaged
-                StartCoroutine(enemyMove.GetDamaged_Move());
+                StopAllCoroutines();
+                enemyMove.Damaged();
                 StartCoroutine(CRT_Damaged());
             }
         }
@@ -124,6 +125,7 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator CRT_Damaged()
     {
+
         Color enemyColor = _originalMat.color;
         Texture texture = _originalMat.GetTexture("_MainTex");
 

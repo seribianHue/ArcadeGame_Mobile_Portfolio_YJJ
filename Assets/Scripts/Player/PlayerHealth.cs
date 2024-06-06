@@ -35,6 +35,12 @@ public class PlayerHealth : MonoBehaviour
     {
         curHp -= damage;
         sliderHp.value = curHp;
+
+        if(curHp <= 0)
+        {
+            curHp = 0;
+            PlayerManager.Instance.Dead();
+        }
     }
 
     public void RestoreHP(int hp)

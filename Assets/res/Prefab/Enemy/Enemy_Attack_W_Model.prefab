@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ecdb5688cd3ac47adfbc13a4304c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 1
+  atk: 3
   atkTime: 0.1
 --- !u!114 &5229176695374611613
 MonoBehaviour:

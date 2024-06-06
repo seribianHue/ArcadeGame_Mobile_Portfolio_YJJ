@@ -85,6 +85,7 @@ public class EnemyAttack : MonoBehaviour
 
         if((playerHealth.CurHp > 0))
         {
+            _animator.ResetTrigger("Attack");
             playerHealth.TakeDamage(atk);
             _animator.SetTrigger("Attack");
         }

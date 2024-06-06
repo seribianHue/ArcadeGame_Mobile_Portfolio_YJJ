@@ -68,18 +68,19 @@ public class LazerWeapon : MonoBehaviour
     public void LazerON()
     {
         _lineRenderer.positionCount = 2;
-        _lineRenderer.SetPosition(0, transform.position);
-        _lineRenderer.SetPosition(1, transform.position + transform.forward * maxDistanceRay);
+        _lineRenderer.SetPosition(0, transform.position + new Vector3(0, 0.5f, 0));
+        _lineRenderer.SetPosition(1, transform.position + new Vector3(0, 0.5f, 0) + transform.forward * maxDistanceRay);
+        print(transform.position);
 
         StartCoroutine(LineRendererLast());
 
-        Debug.DrawRay(transform.position, transform.forward * maxDistanceRay, Color.red, 0.3f);//숫자는 기즈모 떠있는 시간
-        hits = Physics.RaycastAll(transform.position, transform.forward, maxDistanceRay);
+        Debug.DrawRay(transform.position + new Vector3(0, 0.5f, 0), transform.forward * maxDistanceRay, Color.red, 0.3f);//숫자는 기즈모 떠있는 시간
+        hits = Physics.RaycastAll(transform.position + new Vector3(0, 0.5f, 0), transform.forward, maxDistanceRay);
 
         int hitEnemys = 0;
         for (int i = 0; i < hits.Length; ++i)
         {
-            //print(hits[i].collider.name);
+            print(hits[i].collider.name);
             if (hits[i].transform.CompareTag("Enemy"))
             {
                 hits[i].transform.GetComponent<EnemyHealth>().TakeDamage(atk/++hitEnemys);

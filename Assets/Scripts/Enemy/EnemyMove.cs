@@ -42,7 +42,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if(!_enemyHealth.isDead)
+        if(!_enemyHealth.isDead && !GameManager.Instance._isGamePause)
             Move();     
     }
 
@@ -50,6 +50,12 @@ public class EnemyMove : MonoBehaviour
     {
         _myTrf.LookAt(_playerTrf);
         _myTrf.position += transform.forward * _speed * Time.deltaTime;
+    }
+
+    public void Damaged()
+    {
+        StopAllCoroutines();
+        StartCoroutine(GetDamaged_Move());
     }
 
     public IEnumerator GetDamaged_Move()
