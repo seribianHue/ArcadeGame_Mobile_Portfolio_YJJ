@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,6 +71,20 @@ public class GameManager : MonoBehaviour
         _audio.volume = volume;
     }
 
+    IEnumerator CRT_VolumeFadeOut()
+    {
+        float time = 0f;
+        float initVolume = _audio.volume;
+        while (time < 5f)
+        {
+            time += Time.deltaTime;
+            _audio.volume = initVolume - ((initVolume/5f) * time);
+            yield return null;
+
+        }
+        yield return null;
+    }
+
     public void GamePause(bool pause)
     {
         _isGamePause = pause;
@@ -79,6 +94,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOn = false;
+        StartCoroutine(CRT_VolumeFadeOut());
+        _enemySpawnManager.enabled = false;
         _inGameUIMananger.GameOverUI(true);
+        _inGameUIMananger.SetGameTimeInRank(_gameTime);
     }
 }

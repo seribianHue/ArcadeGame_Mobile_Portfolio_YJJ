@@ -26,14 +26,22 @@ public class GameIntroUIManager : MonoBehaviour
         _audio.volume = _gameData._musicVolume/100f;
     }
 
+    [SerializeField] TextMeshProUGUI _rankcontextText;
+    [SerializeField] RankingManager _rankmanager;
     private void Start()
     {
         _soundSlider.value = _gameData._musicVolume;
         _soundValueText.text = _gameData._musicVolume.ToString();
         _audio.volume = _gameData._musicVolume / 100f;
 
-
+        _rankcontextText.text = _rankmanager.ConvertRankToString();
     }
+
+    [SerializeField] GameObject _rankObj;
+    public void BTN_RankOpen()
+    { _rankObj.SetActive(true); }
+    public void BTN_RankClose()
+    { _rankObj.SetActive(false); }
 
     public void BTN_GameStart()
     {

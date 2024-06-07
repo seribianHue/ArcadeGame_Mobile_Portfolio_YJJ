@@ -134,7 +134,7 @@ public class PlayerManager : MonoBehaviour
         {
             time += Time.deltaTime;
             newmat.SetFloat("_DisappearPart", Mathf.Lerp(-2, 2, time / 5f));
-            GameManager.Instance.SetAudioVolume((5f - time) / 5f);
+            //GameManager.Instance.SetAudioVolume(( - time) / 5f);
             yield return null;
 
         }

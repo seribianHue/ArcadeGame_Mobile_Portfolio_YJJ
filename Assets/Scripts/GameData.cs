@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GameData : ScriptableObject
 {
-    public int _musicVolume;
+    public int _musicVolume = 100;
 }

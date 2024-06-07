@@ -42,5 +42,20 @@ public class InGameUIMananger : MonoBehaviour
         GameEndObj.SetActive(onoff);
     }
 
+    [SerializeField] GameObject RankInfoObj;
+    public void BTN_RankInfoUIOpen()
+    {
+        RankInfoObj.SetActive(true);
+    }
+    public void BTN_RankInfoUIClose()
+    {
+        RankInfoObj.SetActive(false);
+    }
+    [SerializeField] TextMeshProUGUI _rankTimetext;
+    public void SetGameTimeInRank(float time)
+    {
+        _rankTimetext.text = time.ToString("F2");
+    }
+
 
 }

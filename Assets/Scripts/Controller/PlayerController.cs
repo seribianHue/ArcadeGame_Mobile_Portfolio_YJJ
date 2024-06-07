@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Animator _anim;
 
-    void Update() { if(!PlayerManager.Instance.isDead || !GameManager.Instance._isGamePause) Move(); }
+    void Update() { if(!PlayerManager.Instance.isDead && !GameManager.Instance._isGamePause) Move(); }
 
     void Move()
     {
-        //Vector2 moveInput = new Vector2(controller._inputDir.x + joystick._InputDir.x, controller._inputDir.y + joystick._InputDir.y);
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 moveInput = new Vector2(controller._inputDir.x + joystick._InputDir.x, controller._inputDir.y + joystick._InputDir.y);
+        //Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         moveInput.Normalize();
 
