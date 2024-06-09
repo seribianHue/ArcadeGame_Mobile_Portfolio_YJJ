@@ -91,7 +91,7 @@ public class RankingManager : MonoBehaviour
         foreach(RankInfo item in sortedList)
         {
             ++i;
-            info += i.ToString() + ". " + item.name + " - " + item.time.ToString("F2") + "\n";
+            info += i.ToString() + ". " + item.name + " - " + item.time.ToString("F2") + "s\n";
         }
         return info;
     }

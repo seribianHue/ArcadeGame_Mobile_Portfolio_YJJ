@@ -85,11 +85,16 @@ public class EnemyAttack : MonoBehaviour
 
         if((playerHealth.CurHp > 0))
         {
-            _animator.ResetTrigger("Attack");
+/*            _animator.SetBool("BoolAttack", false);
+            _animator.SetBool("BoolHit", false);*/
+
             playerHealth.TakeDamage(atk);
-            _animator.SetTrigger("Attack");
+            _animator.SetBool("BoolAttack", true);
+
         }
         //_animator.SetBool("isAttack", false);
 
     }
+
+
 }

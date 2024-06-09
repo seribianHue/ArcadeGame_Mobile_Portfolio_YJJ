@@ -1039,6 +1039,7 @@ GameObject:
   - component: {fileID: 7189386813547119986}
   - component: {fileID: 2143131664925626742}
   - component: {fileID: 3992880280091946495}
+  - component: {fileID: -400538125668126830}
   m_Layer: 0
   m_Name: Enemy_HP_W_Model
   m_TagString: Enemy
@@ -1185,8 +1186,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1902266, y: 2.903515, z: 1.2338953}
-  m_Center: {x: -0.036630154, y: 1.4953712, z: 0.13369751}
+  m_Size: {x: 1.1902266, y: 2.903515, z: 1.3354768}
+  m_Center: {x: -0.036630154, y: 1.4953712, z: 0.18448822}
+--- !u!114 &-400538125668126830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327915882619065064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2c4380d4fdfb1499765bb29ad128d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8498013834168887821
 GameObject:
   m_ObjectHideFlags: 0

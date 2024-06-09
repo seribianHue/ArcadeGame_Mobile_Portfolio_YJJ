@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 3987772146985270788}
   - component: {fileID: 7248914104920036626}
   - component: {fileID: 6558828899982692760}
+  - component: {fileID: 3424933530791302400}
   m_Layer: 0
   m_Name: Enemy_Speed_W_Model
   m_TagString: Enemy
@@ -256,8 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ecdb5688cd3ac47adfbc13a4304c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 5
-  atkTime: 1
+  atk: 1
+  atkTime: 0.1
 --- !u!114 &3987772146985270788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +322,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1902266, y: 2.903515, z: 1.2338953}
   m_Center: {x: -0.036630154, y: 1.4953712, z: 0.13369751}
+--- !u!114 &3424933530791302400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550104676008480773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2c4380d4fdfb1499765bb29ad128d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3287863405189237331
 GameObject:
   m_ObjectHideFlags: 0

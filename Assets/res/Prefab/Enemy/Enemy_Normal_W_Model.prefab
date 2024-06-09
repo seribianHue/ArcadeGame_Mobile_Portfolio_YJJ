@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 46172391307969750}
   - component: {fileID: 927214877069605474}
   - component: {fileID: 177988934387831379}
+  - component: {fileID: 4011869413767595466}
   m_Layer: 0
   m_Name: Enemy_Normal_W_Model
   m_TagString: Enemy
@@ -1079,6 +1080,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1902266, y: 2.903515, z: 1.2338953}
   m_Center: {x: -0.036630154, y: 1.4953712, z: 0.13369751}
+--- !u!114 &4011869413767595466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584012176982273321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2c4380d4fdfb1499765bb29ad128d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7556989067516496812
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,17 @@ public class EnemyManager : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    public void EndHit()
+    {
+        _animator.SetBool("BoolHit", false);
+
+    }
+
+    public void EndAttack()
+    {
+        _animator.SetBool("BoolAttack", false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -129,7 +129,10 @@ public class EnemyHealth : MonoBehaviour
         Color enemyColor = _originalMat.color;
         Texture texture = _originalMat.GetTexture("_MainTex");
 
-        _animator.SetTrigger("Hit");
+        /*        _animator.SetTrigger("ReturnRun");
+                _animator.SetTrigger("Hit");*/
+
+        _animator.SetBool("BoolHit", true);
 
         Material newmat = Instantiate(_damageMat);
         newmat.color = enemyColor;
